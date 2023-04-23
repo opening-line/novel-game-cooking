@@ -1,20 +1,3 @@
-class Step {
-  constructor(text, choices) {
-    this.text = text;
-    this.choices = choices;
-  }
-}
-
-const startStep = new Step("ゲームを始めるにはボタンを押してください。", [
-  { text: "始める", nextScene: 1 },
-]);
-
-const chooseRecipeStep = new Step("どの料理を作りますか？", [
-  { text: "チキンライス", nextScene: 2 },
-  { text: "コーンスープ", nextScene: 7 },
-  { text: "照り焼きチキン", nextScene: 12 },
-]);
-
 class CookingGame {
   constructor(textElement, choicesContainer) {
     this.textElement = textElement;
@@ -24,8 +7,18 @@ class CookingGame {
 
   initScenes() {
     this.scenes = [
-      startStep,
-      chooseRecipeStep,
+      {
+        text: "ゲームを始めるにはボタンを押してください。",
+        choices: [{ text: "始める", nextScene: 1 }],
+      },
+      {
+        text: "どの料理を作りますか？",
+        choices: [
+          { text: "チキンライス", nextScene: 2 },
+          { text: "コーンスープ", nextScene: 7 },
+          { text: "照り焼きチキン", nextScene: 12 },
+        ],
+      },
       ...this.chickenRiceScenes(),
       ...this.cornSoupScenes(),
       ...this.teriyakiChickenScenes(),
@@ -34,30 +27,75 @@ class CookingGame {
 
   chickenRiceScenes() {
     return [
-      new Step("1. ご飯を炊く", 3),
-      new Step("2. チキンを炒める", 4),
-      new Step("3. 野菜を炒める", 5),
-      new Step("4. ケチャップで炒める", 6),
-      new Step("5. ご飯と混ぜる", 1),
+      // チキンライス
+      {
+        text: "1. ご飯を炊く",
+        choices: [{ text: "次へ", nextScene: 3 }],
+      },
+      {
+        text: "2. チキンを炒める",
+        choices: [{ text: "次へ", nextScene: 4 }],
+      },
+      {
+        text: "3. 野菜を炒める",
+        choices: [{ text: "次へ", nextScene: 5 }],
+      },
+      {
+        text: "4. ケチャップで炒める",
+        choices: [{ text: "次へ", nextScene: 6 }],
+      },
+      {
+        text: "5. ご飯と混ぜる",
+        choices: [{ text: "最初からやり直す", nextScene: 1 }],
+      },
     ];
   }
 
   cornSoupScenes() {
     return [
-      new Step("1. バターを溶かす", 8),
-      new Step("2. 玉ねぎを炒める", 9),
-      new Step("3. コーンと水を加える", 10),
-      new Step("4. 塩コショウで味を整える", 11),
-      new Step("5. スープが煮立ったら完成", 1),
+      // コーンスープ
+      {
+        text: "1. バターを溶かす",
+        choices: [{ text: "次へ", nextScene: 8 }],
+      },
+      {
+        text: "2. 玉ねぎを炒める",
+        choices: [{ text: "次へ", nextScene: 9 }],
+      },
+      {
+        text: "3. コーンと水を加える",
+        choices: [{ text: "次へ", nextScene: 10 }],
+      },
+      {
+        text: "4. 塩コショウで味を整える",
+        choices: [{ text: "次へ", nextScene: 11 }],
+      },
+      {
+        text: "5. スープが煮立ったら完成",
+        choices: [{ text: "最初からやり直す", nextScene: 1 }],
+      },
     ];
   }
 
   teriyakiChickenScenes() {
     return [
-      new Step("1. 鶏肉を一口大に切ります。", 13),
-      new Step("2. フライパンに油をひいて鶏肉を炒めます。", 14),
-      new Step("3. 照り焼きソースを加えて炒めます。", 15),
-      new Step("4. 鶏肉に火が通ったら完成です！", 1),
+      // 照り焼きチキン
+      {
+        text: "1. 鶏肉を一口大に切ります。",
+        choices: [{ text: "次へ", nextScene: 13 }],
+      },
+      {
+        text: "2.フライパンに油をひいて鶏肉を炒めます。",
+        choices: [{ text: "次へ", nextScene: 14 }],
+      },
+      {
+        text: "3. 照り焼きソースを加えて炒めます。",
+        choices: [{ text: "次へ", nextScene: 15 }],
+      },
+      {
+        text: "4. 鶏肉に火が通ったら完成です！",
+        choices: [{ text: "最初からやり直す", nextScene: 1 }],
+      },
     ];
   }
 
