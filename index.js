@@ -28,6 +28,9 @@ const teriyakiChickenMenu = new Menu("照り焼きチキン", [
   "4. 鶏肉に火が通ったら完成です！",
 ]);
 
+// この部分を切り出すにはNode.jsの知識が必要になるため現在はそこまでカバーするのが難しいです。
+// ですのでクラスを「切り出す」、凝集度を上げるというところをトレーニングします。
+
 class CookingGame {
   constructor(textElement, choicesContainer, menus) {
     this.textElement = textElement;
