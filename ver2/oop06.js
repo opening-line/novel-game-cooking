@@ -78,7 +78,7 @@ class Recipe {
 
   getProcedureText(index) {
     const text = this.procedures[index].getText();
-    return `${index}.${text}`
+    return `${index + 1}.${text}`
   }
 }
 
