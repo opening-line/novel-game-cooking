@@ -47,31 +47,43 @@ const choiceData = {
 const messageElement = document.getElementById("text");
 const choicesContainer = document.getElementById("choices-container");
 
-async function showScene(messageId) {
-  const currentMessageData = messageData[messageId];
-  const currentMessage = currentMessageData.text;
+async function main() {
+  let messageId = "t01";
 
-  messageElement.innerText = "";
-  choicesContainer.innerHTML = "";
+  while (true) {
+    const currentMessageData = messageData[messageId];
+    const currentMessage = currentMessageData.text;
 
-  for (let i = 0; i < currentMessage.length; i++) {
-    messageElement.innerText += currentMessage[i];
-    await new Promise(resolve => setTimeout(resolve, 20));
+    messageElement.innerText = "";
+    choicesContainer.innerHTML = "";
+
+    for (let i = 0; i < currentMessage.length; i++) {
+      messageElement.innerText += currentMessage[i];
+      await new Promise(resolve => setTimeout(resolve, 20));
+    }
+
+    const waitClickAnyButtons = []
+
+    for (let i = 0; i < currentMessageData.choiceIds.length; i++) {
+      const button = document.createElement("button");
+      const choiceId = currentMessageData.choiceIds[i];
+      const choice = choiceData[choiceId];
+      button.innerText = choice.text;
+      const waitClick = new Promise((resolve) => {
+        button.addEventListener("click", () => {
+          resolve(choice.target);
+        });
+      });
+      waitClickAnyButtons.push(waitClick);
+      choicesContainer.appendChild(button);
+    }
+
+    messageId = await Promise.race(waitClickAnyButtons);
   }
 
-  for (let i = 0; i < currentMessageData.choiceIds.length; i++) {
-    const button = document.createElement("button");
-    const choiceId = currentMessageData.choiceIds[i];
-    const choice = choiceData[choiceId];
-    button.innerText = choice.text;
-    button.addEventListener("click", () => {
-      showScene(choice.target);
-    });
-    choicesContainer.appendChild(button);
-  }
 }
 
-showScene("t01");
+main();
 
 // こちらは手続き型のコードになります。
 // こちらの機能がベースとなり、オブジェクト指向型のコードへと変換させます。
