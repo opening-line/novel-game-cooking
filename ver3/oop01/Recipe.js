@@ -1,7 +1,10 @@
+import { ColorTheme } from "./ColorTheme.js";
+
 class Recipe {
   constructor(name, procedures) {
     this.name = name;
     this.procedures = procedures;
+    this.colorTheme = ColorTheme.DEFAULT;
   }
 
   getName() {
@@ -15,6 +18,10 @@ class Recipe {
   getProcedureText(index) {
     const text = this.procedures[index].getText();
     return `${index}.${text}`
+  }
+
+  getColorTheme() {
+    return this.colorTheme;
   }
 }
 

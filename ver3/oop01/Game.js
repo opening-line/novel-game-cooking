@@ -29,7 +29,7 @@ class Game {
       const recipeButtons = [];
       for (let i = 0; i < this.recipes.length; i++) {
         const recipe = this.recipes[i];
-        const button = new ChoiceButton(recipe.getName());
+        const button = new ChoiceButton(recipe.getName(), recipe.getColorTheme());
         recipeButtons.push(button);
       }
 

@@ -1,5 +1,6 @@
 import { Recipe } from "./Recipe.js";
 import { Procedure } from "./Procedure.js";
+import { ColorTheme } from "./ColorTheme.js";
 
 class ConeSoupRecipe extends Recipe {
   constructor() {
@@ -10,6 +11,7 @@ class ConeSoupRecipe extends Recipe {
       new Procedure("塩コショウで味を整える"),
       new Procedure("スープが煮立ったら完成"),
     ]);
+    this.colorTheme = ColorTheme.SWEET;
   }
 }
 

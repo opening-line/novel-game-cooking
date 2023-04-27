@@ -1,5 +1,6 @@
 import { Recipe } from "./Recipe.js";
 import { Procedure } from "./Procedure.js";
+import { ColorTheme } from "./ColorTheme.js";
 
 class TeriyakiChickenRecipe extends Recipe {
   constructor() {
@@ -9,6 +10,7 @@ class TeriyakiChickenRecipe extends Recipe {
       new Procedure("照り焼きソースを加えて炒めます"),
       new Procedure("鶏肉に火が通ったら完成です"),
     ]);
+    this.colorTheme = ColorTheme.SPICY;
   }
 }
 
