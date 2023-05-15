@@ -44,6 +44,7 @@ const choiceData = {
   "b341": { text: "最初からやり直す", target: "t01" },
 }
 
+// Elementオブジェクトを取得
 const messageElement = document.getElementById("text");
 const choicesContainer = document.getElementById("choices-container");
 
@@ -51,6 +52,7 @@ async function main() {
   let messageId = "t01";
 
   while (true) {
+    // 文章関係
     const currentMessageData = messageData[messageId];
     const currentMessage = currentMessageData.text;
 
@@ -62,6 +64,7 @@ async function main() {
       await new Promise(resolve => setTimeout(resolve, 20));
     }
 
+    // ボタン関係
     const waitClickAnyButtons = []
 
     for (let i = 0; i < currentMessageData.choiceIds.length; i++) {
