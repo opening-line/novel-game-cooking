@@ -1,4 +1,4 @@
-import { Game } from './oop07/game.js';
+import { Game } from './src/game.js';
 
 const game = new Game();
 game.start();

@@ -1,5 +1,5 @@
-import messageData from './non-oop02/messageData.js';
-import choiceData from './non-oop02/choiceData.js';
+import messageData from './messageData.js';
+import choiceData from './choiceData.js';
 
 const messageElement = document.getElementById("text");
 const choicesContainer = document.getElementById("choices-container");
