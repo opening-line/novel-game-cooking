@@ -1,31 +1,40 @@
 class MessageWindow {
+
+  #messageElement;
+  #message;
+
   constructor(message) {
-    this.messageElement = document.getElementById("text");
-    this.message = message
+    this.#messageElement = document.getElementById("text");
+    this.#message = message
   }
 
+  /**
+   * @returns {Promise<void>}
+   */
   async showText() {
-    this.messageElement.innerText = "";
-    for (let i = 0; i < this.message.length; i++) {
-      this.messageElement.innerText += this.message[i];
+    this.#messageElement.innerText = "";
+    for (let i = 0; i < this.#message.length; i++) {
+      this.#messageElement.innerText += this.#message[i];
       await new Promise(resolve => setTimeout(resolve, 20));
     }
   }
 }
 
+
 class ChoicesContainer {
-  choicesContainer;
-  buttons;
+
+  #choicesContainer;
+  #buttons;
 
   /**
    *
    * @param {ChoiceButton} buttons
    */
   constructor(...buttons) {
-    this.choicesContainer = document.getElementById("choices-container");
-    this.buttons = buttons;
-    for (let button of this.buttons) {
-      this.choicesContainer.appendChild(button.toDomElement());
+    this.#choicesContainer = document.getElementById("choices-container");
+    this.#buttons = buttons;
+    for (let button of this.#buttons) {
+      this.#choicesContainer.appendChild(button.toDomElement());
     }
   }
 
@@ -34,75 +43,84 @@ class ChoicesContainer {
    * @returns {Promise<number>}
    */
   async waitClickAny() {
-    return await Promise.any(this.buttons.map((button, index) => button.waitClick().then(() => index)));
+    return await Promise.any(this.#buttons.map((button, index) => button.waitClick().then(() => index)));
   }
 
   clear() {
-    this.choicesContainer.innerHTML = "";
+    this.#choicesContainer.innerHTML = "";
   }
 }
 
+
 class ChoiceButton {
+
+  #button;
+
   constructor(text) {
-    this.button = document.createElement("button");
-    this.button.innerText = text;
+    this.#button = document.createElement("button");
+    this.#button.innerText = text;
   }
 
   waitClick() {
     return new Promise((resolve) => {
-      this.button.addEventListener("click", () => {
+      this.#button.addEventListener("click", () => {
         resolve();
       });
     });
   }
 
   toDomElement() {
-    return this.button;
+    return this.#button;
   }
 }
 
 
 class Recipe {
+  
+  #name;
+  #procedures;
+
   constructor(name, procedures) {
-    this.name = name;
-    this.procedures = procedures;
+    this.#name = name;
+    this.#procedures = procedures;
   }
 
   getName() {
-    return this.name
+    return this.#name
   }
 
   getProcedureCount() {
-    return this.procedures.length;
+    return this.#procedures.length;
   }
 
   getProcedureText(index) {
-    const text = this.procedures[index].getText();
-    return `${index + 1}.${text}`
+    const text = this.#procedures[index].getText();
+    return `${index}.${text}`
   }
 }
 
 class Procedure {
+
+  #text;
+
   constructor(text) {
-    this.text = text;
+    this.#text = text;
   }
 
   getText() {
-    return this.text
+    return this.#text;
   }
 }
 
 class ChickenRiceRecipe extends Recipe {
   constructor() {
-    super();
-    this.name = "チキンライス";
-    this.procedures = [
+    super("チキンライス", [
       new Procedure("ご飯を炊く"),
       new Procedure("チキンを炒める"),
       new Procedure("野菜を炒める"),
       new Procedure("ケチャップで炒める"),
       new Procedure("ご飯と混ぜる"),
-    ];
+    ]);
   }
 }
 
@@ -130,12 +148,15 @@ class TeriyakiChickenRecipe extends Recipe {
 }
 
 class Game {
+
+  #recipes;
+
   constructor() {
     const chickenRiceRecipe = new ChickenRiceRecipe();
     const coneSoupRecipe = new ConeSoupRecipe();
     const teriyakiChickenRecipe = new TeriyakiChickenRecipe();
 
-    this.recipes = [chickenRiceRecipe, coneSoupRecipe, teriyakiChickenRecipe];
+    this.#recipes = [chickenRiceRecipe, coneSoupRecipe, teriyakiChickenRecipe];
   }
 
   async start() {
@@ -151,8 +172,8 @@ class Game {
       await w02.showText();
 
       const recipeButtons = [];
-      for (let i = 0; i < this.recipes.length; i++) {
-        const recipe = this.recipes[i];
+      for (let i = 0; i < this.#recipes.length; i++) {
+        const recipe = this.#recipes[i];
         const button = new ChoiceButton(recipe.getName());
         recipeButtons.push(button);
       }
@@ -161,7 +182,7 @@ class Game {
       const selectedIndex = await recipeChoice.waitClickAny();
       recipeChoice.clear();
 
-      const selectedRecipe = this.recipes[selectedIndex];
+      const selectedRecipe = this.#recipes[selectedIndex];
 
       for (let i = 0; i < selectedRecipe.getProcedureCount(); i++) {
         const procedureText = selectedRecipe.getProcedureText(i);

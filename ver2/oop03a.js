@@ -1,6 +1,10 @@
 // noinspection JSAnnotator
 
 class Recipe {
+
+  name;
+  procedures;
+
   constructor(name, procedures) {
     this.name = name;
     this.procedures = procedures;
@@ -8,6 +12,9 @@ class Recipe {
 }
 
 class Procedure {
+
+  text;
+
   constructor(text) {
     this.text = text;
   }
@@ -15,14 +22,13 @@ class Procedure {
 
 class ChickenRiceRecipe extends Recipe {
   constructor() {
-    this.name = "チキンライス";
-    this.procedures = [
+    super("チキンライス", [
       new Procedure("ご飯を炊く"),
       new Procedure("チキンを炒める"),
       new Procedure("野菜を炒める"),
       new Procedure("ケチャップで炒める"),
       new Procedure("ご飯と混ぜる"),
-    ];
+    ]);
   }
 }
 

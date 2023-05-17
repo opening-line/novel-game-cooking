@@ -1,45 +1,51 @@
 // noinspection JSAnnotator
 
 class Recipe {
+  
+  #name;
+  #procedures;
+
   constructor(name, procedures) {
-    this.name = name;
-    this.procedures = procedures;
+    this.#name = name;
+    this.#procedures = procedures;
   }
 
   getName() {
-    return this.name
+    return this.#name
   }
 
   getProcedureCount() {
-    return this.procedures.length;
+    return this.#procedures.length;
   }
 
   getProcedureText(index) {
-    const text = this.procedures[index].getText();
+    const text = this.#procedures[index].getText();
     return `${index}.${text}`
   }
 }
 
 class Procedure {
+
+  #text;
+
   constructor(text) {
-    this.text = text;
+    this.#text = text;
   }
 
   getText() {
-    return this.text
+    return this.#text;
   }
 }
 
 class ChickenRiceRecipe extends Recipe {
   constructor() {
-    this.name = "チキンライス";
-    this.procedures = [
+    super("チキンライス", [
       new Procedure("ご飯を炊く"),
       new Procedure("チキンを炒める"),
       new Procedure("野菜を炒める"),
       new Procedure("ケチャップで炒める"),
       new Procedure("ご飯と混ぜる"),
-    ];
+    ]);
   }
 }
 

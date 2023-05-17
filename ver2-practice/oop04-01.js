@@ -1,3 +1,7 @@
+// noinspection JSAnnotator
+
+// カプセル化しよう
+
 class MessageWindow {
 
   #messageElement;
@@ -20,4 +24,6 @@ class MessageWindow {
   }
 }
 
-export { MessageWindow };
+
+
+// MessageWindowを使って、「チキンを炒めます」というメッセージを表示するには、どういうコードを書く？

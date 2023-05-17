@@ -1,4 +1,6 @@
 class Recipe {
+  name;
+  
   constructor(name) {
     this.name = name;
   }

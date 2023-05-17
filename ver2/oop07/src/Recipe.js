@@ -1,19 +1,23 @@
 class Recipe {
+  
+  #name;
+  #procedures;
+
   constructor(name, procedures) {
-    this.name = name;
-    this.procedures = procedures;
+    this.#name = name;
+    this.#procedures = procedures;
   }
 
   getName() {
-    return this.name
+    return this.#name
   }
 
   getProcedureCount() {
-    return this.procedures.length;
+    return this.#procedures.length;
   }
 
   getProcedureText(index) {
-    const text = this.procedures[index].getText();
+    const text = this.#procedures[index].getText();
     return `${index}.${text}`
   }
 }
