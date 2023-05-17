@@ -6,12 +6,15 @@ import { ConeSoupRecipe } from "./ConeSoupRecipe.js";
 import { TeriyakiChickenRecipe } from "./TeriyakiChickenRecipe.js";
 
 class Game {
+
+  #recipes;
+
   constructor() {
     const chickenRiceRecipe = new ChickenRiceRecipe();
     const coneSoupRecipe = new ConeSoupRecipe();
     const teriyakiChickenRecipe = new TeriyakiChickenRecipe();
 
-    this.recipes = [chickenRiceRecipe, coneSoupRecipe, teriyakiChickenRecipe];
+    this.#recipes = [chickenRiceRecipe, coneSoupRecipe, teriyakiChickenRecipe];
   }
 
   async start() {
@@ -27,8 +30,8 @@ class Game {
       await w02.showText();
 
       const recipeButtons = [];
-      for (let i = 0; i < this.recipes.length; i++) {
-        const recipe = this.recipes[i];
+      for (let i = 0; i < this.#recipes.length; i++) {
+        const recipe = this.#recipes[i];
         const button = new ChoiceButton(recipe.getName(), recipe.getColorTheme());
         recipeButtons.push(button);
       }
@@ -37,7 +40,7 @@ class Game {
       const selectedIndex = await recipeChoice.waitClickAny();
       recipeChoice.clear();
 
-      const selectedRecipe = this.recipes[selectedIndex];
+      const selectedRecipe = this.#recipes[selectedIndex];
 
       for (let i = 0; i < selectedRecipe.getProcedureCount(); i++) {
         const procedureText = selectedRecipe.getProcedureText(i);

@@ -1,10 +1,13 @@
 import { ColorTheme } from "./ColorTheme.js";
 
 class ChoiceButton {
+
+  #button;
+
   constructor(text, color = ColorTheme.DEFAULT) {
-    this.button = document.createElement("button");
-    this.button.innerText = text;
-    this.button.style.backgroundColor = ColorTheme.getBackgroundColorCode(color);
+    this.#button = document.createElement("button");
+    this.#button.innerText = text;
+    this.#button.style.backgroundColor = ColorTheme.getBackgroundColorCode(color);
   }
 
   /*
@@ -19,14 +22,14 @@ class ChoiceButton {
 
   waitClick() {
     return new Promise((resolve) => {
-      this.button.addEventListener("click", () => {
+      this.#button.addEventListener("click", () => {
         resolve();
       });
     });
   }
 
   toDomElement() {
-    return this.button;
+    return this.#button;
   }
 }
 
