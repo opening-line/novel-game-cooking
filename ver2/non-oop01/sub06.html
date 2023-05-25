@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>非オブジェクト指向：料理ノベルゲーム</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="text-container">
+  <div id="text-window">
+    <p id="text"></p>
+  </div>
+  <div id="button-container"></div>
+</div>
+
+<script type="module">
+    // 名前付きインポート
+    import { message } from './sub06.js';
+
+    // デフォルトインポート
+    import message from './sub06.js';
+
+    const textElement = document.getElementById("text");
+
+    for (let i = 0; i < message.length; i++) {
+
+        // 文字を追記
+        textElement.innerText += message[i];
+
+        // 指定ミリ秒待機
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+    }
+</script>
+
+</body>
+</html>
