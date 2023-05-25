@@ -52,26 +52,31 @@ async function main() {
   let messageId = "t01";
 
   while (true) {
-    // 文章関係
+    // 表示するテキストを用意
     const currentMessageData = messageData[messageId];
     const currentMessage = currentMessageData.text;
 
+    // いったん表示をクリア
     textElement.innerText = "";
     buttonContainerElement.innerHTML = "";
 
+    // テキストを表示する（ゆっくりと）
     for (let i = 0; i < currentMessage.length; i++) {
       textElement.innerText += currentMessage[i];
       await new Promise(resolve => setTimeout(resolve, 20));
     }
 
-    // ボタン関係
+    // ボタンの Promise を格納する配列
     const waitClickAnyButtons = []
 
+    // ボタンの数だけループ
     for (let i = 0; i < currentMessageData.choiceIds.length; i++) {
+      // ボタンエレメントを作成
       const button = document.createElement("button");
       const choiceId = currentMessageData.choiceIds[i];
       const choice = choiceData[choiceId];
       button.innerText = choice.text;
+      // クリックされるまで待機する promise インスタンス
       const waitClick = new Promise((resolve) => {
         button.addEventListener("click", () => {
           resolve(choice.target);
@@ -81,6 +86,7 @@ async function main() {
       buttonContainerElement.appendChild(button);
     }
 
+    // いずれかのボタンが押されるまで待機
     messageId = await Promise.race(waitClickAnyButtons);
   }
 
