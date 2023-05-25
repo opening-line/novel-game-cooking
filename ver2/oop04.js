@@ -3,7 +3,7 @@
 // 非オブジェクト指向で、ブラウザ画面を操作していたコード
 
 const messageElement = document.getElementById("text");
-const choicesContainer = document.getElementById("choices-container");
+const choicesContainer = document.getElementById("button-container");
 
 messageElement.innerText = "";
 choicesContainer.innerHTML = "";
@@ -51,7 +51,7 @@ class ChoicesContainer {
    * @param {ChoiceButton} buttons
    */
   constructor(...buttons) {
-    this.#choicesContainer = document.getElementById("choices-container");
+    this.#choicesContainer = document.getElementById("button-container");
     this.#buttons = buttons;
     for (let button of this.#buttons) {
       this.#choicesContainer.appendChild(button.toDomElement());

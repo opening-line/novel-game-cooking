@@ -46,7 +46,7 @@ const choiceData = {
 
 // Elementオブジェクトを取得
 const messageElement = document.getElementById("text");
-const choicesContainer = document.getElementById("choices-container");
+const choicesContainer = document.getElementById("button-container");
 
 async function main() {
   let messageId = "t01";

@@ -2,7 +2,7 @@ import messageData from './messageData.js';
 import choiceData from './choiceData.js';
 
 const messageElement = document.getElementById("text");
-const choicesContainer = document.getElementById("choices-container");
+const choicesContainer = document.getElementById("button-container");
 
 let messageId = "t01";
 
