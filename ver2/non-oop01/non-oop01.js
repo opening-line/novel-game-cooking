@@ -45,8 +45,8 @@ const choiceData = {
 }
 
 // Elementオブジェクトを取得
-const messageElement = document.getElementById("text");
-const choicesContainer = document.getElementById("button-container");
+const textElement = document.getElementById("text");
+const buttonContainerElement = document.getElementById("button-container");
 
 async function main() {
   let messageId = "t01";
@@ -56,11 +56,11 @@ async function main() {
     const currentMessageData = messageData[messageId];
     const currentMessage = currentMessageData.text;
 
-    messageElement.innerText = "";
-    choicesContainer.innerHTML = "";
+    textElement.innerText = "";
+    buttonContainerElement.innerHTML = "";
 
     for (let i = 0; i < currentMessage.length; i++) {
-      messageElement.innerText += currentMessage[i];
+      textElement.innerText += currentMessage[i];
       await new Promise(resolve => setTimeout(resolve, 20));
     }
 
@@ -78,7 +78,7 @@ async function main() {
         });
       });
       waitClickAnyButtons.push(waitClick);
-      choicesContainer.appendChild(button);
+      buttonContainerElement.appendChild(button);
     }
 
     messageId = await Promise.race(waitClickAnyButtons);
