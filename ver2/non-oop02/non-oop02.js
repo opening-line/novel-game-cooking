@@ -1,5 +1,8 @@
+// import 文 デフォルトインポート
 import messageData from './messageData.js';
-import choiceData from './choiceData.js';
+
+// import 文 名前付きインポート
+import { choiceData } from './choiceData.js';
 
 const textElement = document.getElementById("text");
 const buttonContainerElement = document.getElementById("button-container");
@@ -36,8 +39,3 @@ while (true) {
 
   messageId = await Promise.race(waitClickAnyButtons);
 }
-
-// データ指向プログラミング的な書き方を意識しました
-
-// すべてが１個所にまとまっています。
-// コードはすっきりしているように見えますが、複数人が同時に編集するとしたら衝突が発生しませんか。

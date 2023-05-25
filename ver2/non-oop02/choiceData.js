@@ -22,4 +22,4 @@ const choiceData = {
   "b341": { text: "最初からやり直す", target: "t01" },
 }
 
-export default choiceData;
+export { choiceData }
