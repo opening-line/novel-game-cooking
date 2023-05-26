@@ -10,16 +10,6 @@ class ChoiceButton {
     this.#button.style.backgroundColor = ColorTheme.getBackgroundColorCode(color);
   }
 
-  /*
-  constructor(text) {
-    this(text, "#222");
-  }
-
-  constructor(text, color) {
-    ...
-  }
-   */
-
   waitClick() {
     return new Promise((resolve) => {
       this.#button.addEventListener("click", () => {

@@ -9,7 +9,7 @@ class ColorTheme {
 
 // 色を扱うコード
 
-// これはどうやって使うでしょうか
+// これはどう使ってカラーコードを取得するでしょうか
 // ここに書いてみてください
 
 
@@ -21,8 +21,8 @@ class ColorTheme {
 
 
 
-
-// フィールドが書き換えられるのは困でしょう。
+// しかしながらフィールドは書き換え可能になっています
+// 書き換えられるのは困るでしょう。書き換えられないようにするには？
 
 
 class ColorTheme {
@@ -51,5 +51,31 @@ class ColorTheme {
 // 今回は、書き換えられても特に問題ない。それを使用している個所がない。
 // それを防止するテクニックはあるが、コードが複雑になるのでここでは扱わない
 
-// では、この場合の使い方はどうなりますか？
+// では、この場合のカラーコードの取得方法はどうなりますか？
 // ここに書いてみてください
+
+
+
+
+
+
+
+
+
+
+
+// P.S.
+// これを使ったChoiceButtonクラス
+
+class ChoiceButton {
+
+  #button;
+
+  constructor(text, color = ColorTheme.DEFAULT) {
+    this.#button = document.createElement("button");
+    this.#button.innerText = text;
+    this.#button.style.backgroundColor = ColorTheme.getBackgroundColorCode(color);
+  }
+
+  /* 中略 */
+}

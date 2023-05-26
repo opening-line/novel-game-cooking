@@ -29,10 +29,10 @@ class ChoiceButton {
 
   #button;
 
-  constructor(text, color = ColorTheme.DEFAULT) {
+  constructor(text, color = "#222") {
     this.#button = document.createElement("button");
     this.#button.innerText = text;
-    this.#button.style.backgroundColor = ColorTheme.getBackgroundColorCode(color);
+    this.#button.style.backgroundColor = color;
   }
 
   // 中略

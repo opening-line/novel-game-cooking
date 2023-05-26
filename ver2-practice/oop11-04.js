@@ -1,3 +1,23 @@
+class Recipe {
+
+  #name;
+  #procedures;
+  #colorTheme;
+
+  constructor(name, procedures, colorTheme = ColorTheme.DEFAULT) {
+    this.#name = name;
+    this.#procedures = procedures;
+    this.#colorTheme = colorTheme;
+  }
+
+  // 中略
+
+  getColorTheme() {
+    return this.#colorTheme;
+  }
+}
+
+
 class ChickenRiceRecipe extends Recipe {
   constructor() {
     super(
