@@ -48,8 +48,7 @@ class ColorTheme {
   }
 }
 
-// 今回は、書き換えられても特に問題ない。それを使用している個所がない。
-// それを防止するテクニックはあるが、コードが複雑になるのでここでは扱わない
+// これは、書き換えられても特に問題ない。変数をそのままカラーコードとして使用してないから。
 
 // では、この場合のカラーコードの取得方法はどうなりますか？
 // ここに書いてみてください
@@ -66,6 +65,24 @@ class ColorTheme {
 
 // P.S.
 // これを使ったChoiceButtonクラス
+
+// Before
+
+class ChoiceButton {
+
+  #button;
+
+  constructor(text, color = "#222") {
+    this.#button = document.createElement("button");
+    this.#button.innerText = text;
+    this.#button.style.backgroundColor = color;
+  }
+
+  // 中略
+
+}
+
+// After
 
 class ChoiceButton {
 
