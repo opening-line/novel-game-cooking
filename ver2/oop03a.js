@@ -55,6 +55,9 @@ class TeriyakiChickenRecipe extends Recipe {
   }
 }
 
+new ChickenRiceRecipe();
+new ConeSoupRecipe();
+new TeriyakiChickenRecipe();
 
-// では次に、これらを画面に表示することを考えてみる
-//
+
+// フィールドは公開せず、メソッドで公開していきます

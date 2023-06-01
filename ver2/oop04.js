@@ -41,6 +41,19 @@ class MessageWindow {
 }
 
 
+const messageWindow = new MessageWindow("表示するメッセージです。");
+
+const main1 = async () => {
+
+  // メッセージが表示し終わるまで待機
+  await messageWindow.showText();
+
+  // 続きの処理
+}
+
+
+
+
 class ChoicesContainer {
 
   #choicesContainer;
@@ -72,6 +85,17 @@ class ChoicesContainer {
 }
 
 
+
+const choicesContainer = new ChoicesContainer(new ChoiceButton("ボタン１"), new ChoiceButton("ボタン２"));
+
+const main2 = async () => {
+  const clickedIndex = await choicesContainer.waitClickAny();
+  console.log(clickedIndex);
+  choicesContainer.clear();
+}
+
+
+
 class ChoiceButton {
 
   #button;
@@ -92,4 +116,11 @@ class ChoiceButton {
   toDomElement() {
     return this.#button;
   }
+}
+
+
+const button = new ChoiceButton("ボタンの中に表示するテキスト");
+
+const main3 = async () => {
+  await button.waitClick();
 }

@@ -162,8 +162,7 @@ class Game {
   async start() {
     const w01 = new MessageWindow("ゲームを始めるにはボタンを押してください");
     await w01.showText();
-    const b01 = new ChoiceButton("始める");
-    const c01 = new ChoicesContainer(b01);
+    const c01 = new ChoicesContainer(new ChoiceButton("始める"));
     await c01.waitClickAny();
     c01.clear();
 
@@ -173,8 +172,7 @@ class Game {
 
       const recipeButtons = [];
       for (let i = 0; i < this.#recipes.length; i++) {
-        const recipe = this.#recipes[i];
-        const button = new ChoiceButton(recipe.getName());
+        const button = new ChoiceButton(recipes[i].getName());
         recipeButtons.push(button);
       }
 

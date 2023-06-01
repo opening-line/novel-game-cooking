@@ -1,5 +1,5 @@
-// id="text" のエレメントを取得
-const textElement = document.getElementById("text");
+// id="target" のエレメントを取得
+const targetElement = document.getElementById("target");
 
 // エレメントの内部テキストを更新するには？
 
@@ -9,8 +9,8 @@ const textElement = document.getElementById("text");
 
 
 
-// id="button-container" のエレメントを取得
-const buttonContainerElement = document.getElementById("button-container");
+// id="box" のエレメントを取得
+const boxElement = document.getElementById("box");
 
 // エレメントの内部HTMLを削除するには？
 
@@ -23,4 +23,4 @@ const button =
 // ボタンの文字をセット
 button.innerText = "Click Me";
 
-// buttonContainerElement エレメントの配下にセットするには？
+// boxElement エレメントの配下にセットするには？

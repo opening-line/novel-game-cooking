@@ -1,4 +1,4 @@
-const buttonContainerElement = document.getElementById("button-container");
+const boxElement = document.getElementById("box");
 
 // ボタンエレメントを作成
 const button = document.createElement("button");
@@ -12,4 +12,4 @@ button.
 
 
 // 他のエレメントにセットする
-buttonContainerElement.appendChild(button);
+boxElement.appendChild(button);

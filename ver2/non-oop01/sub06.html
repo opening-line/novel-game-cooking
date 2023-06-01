@@ -14,25 +14,7 @@
   <div id="button-container"></div>
 </div>
 
-<script type="module">
-    // 名前付きインポート
-    import { message } from './sub06.js';
-
-    // デフォルトインポート
-    import message from './sub06.js';
-
-    const textElement = document.getElementById("text");
-
-    for (let i = 0; i < message.length; i++) {
-
-        // 文字を追記
-        textElement.innerText += message[i];
-
-        // 指定ミリ秒待機
-        await new Promise(resolve => setTimeout(resolve, 100));
-
-    }
-</script>
+<script type="module" src="./sub06b.js"></script>
 
 </body>
 </html>
