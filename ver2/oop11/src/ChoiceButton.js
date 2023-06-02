@@ -10,10 +10,10 @@ class ChoiceButton {
     this.#button.style.backgroundColor = ColorTheme.getBackgroundColorCode(color);
   }
 
-  waitClick() {
+  waitClick(index) {
     return new Promise((resolve) => {
       this.#button.addEventListener("click", () => {
-        resolve();
+        resolve(index);
       });
     });
   }

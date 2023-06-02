@@ -22,7 +22,13 @@ class ChoicesContainer {
    * @returns {Promise<number>}
    */
   async waitClickAny() {
-    return await Promise.any(this.#buttons.map((button, index) => button.waitClick().then(() => index)));
+    const waitClickAnyButtons = []
+    for (let i = 0; i < this.#buttons.length; i++) {
+      const waitClick = this.#buttons[i].waitClick(i)
+      waitClickAnyButtons.push(waitClick)
+    }
+    
+    return await Promise.any(waitClickAnyButtons);
   }
 
   clear() {

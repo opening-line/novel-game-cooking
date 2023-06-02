@@ -1,18 +1,19 @@
-const buttonContainerElement = document.getElementById("button-container");
-
-// ボタンエレメントを作成
-const button = document.createElement("button");
-
-// ボタンの文字をセット
-button.innerText = "Click Me";
-
-// ボタンがクリックされた時の動作を設定
-button.addEventListener("click", () => {
-    console.log('Clicked');
-});
+const textElement = document.getElementById("text");
 
 
+// async 関数で囲むと await が使えるようになる
+const main = async () => {
 
+    for (let i = 0; i < 100; i++) {
 
-// 他のエレメントにセットする
-buttonContainerElement.appendChild(button);
+        // 文字を追記
+        textElement.innerText += "あ";
+
+        // 指定ミリ秒待機
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
+    }
+
+}
+
+main();

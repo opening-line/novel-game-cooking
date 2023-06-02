@@ -43,7 +43,13 @@ class ChoicesContainer {
    * @returns {Promise<number>}
    */
   async waitClickAny() {
-    return await Promise.any(this.#buttons.map((button, index) => button.waitClick().then(() => index)));
+    const waitClickAnyButtons = []
+    for (let i = 0; i < this.#buttons.length; i++) {
+      const waitClick = this.#buttons[i].waitClick(i)
+      waitClickAnyButtons.push(waitClick)
+    }
+    
+    return await Promise.any(waitClickAnyButtons);
   }
 
   clear() {
@@ -61,10 +67,10 @@ class ChoiceButton {
     this.#button.innerText = text;
   }
 
-  waitClick() {
+  waitClick(index) {
     return new Promise((resolve) => {
       this.#button.addEventListener("click", () => {
-        resolve();
+        resolve(index);
       });
     });
   }
@@ -172,7 +178,7 @@ class Game {
 
       const recipeButtons = [];
       for (let i = 0; i < this.#recipes.length; i++) {
-        const button = new ChoiceButton(recipes[i].getName());
+        const button = new ChoiceButton(this.#recipes[i].getName());
         recipeButtons.push(button);
       }
 

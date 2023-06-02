@@ -7,10 +7,10 @@ class ChoiceButton {
     this.#button.innerText = text;
   }
 
-  waitClick() {
+  waitClick(index) {
     return new Promise((resolve) => {
       this.#button.addEventListener("click", () => {
-        resolve();
+        resolve(index);
       });
     });
   }
