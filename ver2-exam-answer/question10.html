@@ -1,0 +1,28 @@
+<!--
+    問題１０
+    実行すると、コンソール画面に「なんてね」と表示させたいのですが、うまくいきません。
+    うまくいくように、修正してください。
+ -->
+
+ <head>
+    <meta charset="UTF-8" />
+ </head>
+
+<script>
+    class Slime {
+        name;
+
+        constructor(name) {
+            this.name = name;
+        }
+
+        melt() {
+            return "なんてね";
+        }
+    }
+
+    const slime = new Slime("bob");
+
+    // () の付け忘れです
+    console.log(slime.melt());
+</script>

@@ -1,0 +1,22 @@
+<!-- 
+問題４
+このコードを実行したらエラーになりました。
+エラーが起きないように修正してください。
+ -->
+
+<script>
+class Monster {
+    color;
+    
+    // static を消去
+    // static setColor(color) {
+    setColor(color) {
+        this.color = color;
+    }
+}
+
+const monster = new Monster();
+
+monster.setColor("green");
+
+</script>

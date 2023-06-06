@@ -1,0 +1,30 @@
+<!--
+    問題８
+    以下のコードは、実行の際にエラーが出てしまいます。
+    エラーが出ないように修正してください。
+-->
+
+
+<!-- 回答 -->
+
+<script>
+    class Car {
+        #name;
+        #driver;
+
+        constructor(name) {
+            this.#name = name;
+            // クラスは定義してからしか使えない
+            this.#driver = new Driver();
+        }
+    }
+
+    // const car = new Car("coupe");
+
+    class Driver {
+
+    }
+
+    const car = new Car("coupe");
+
+</script>
