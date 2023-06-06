@@ -1,3 +1,5 @@
+import { ColorTheme } from "./ColorTheme.js";
+
 class Recipe {
 
   #name;
@@ -27,3 +29,5 @@ class Recipe {
     return this.#colorTheme;
   }
 }
+
+export { Recipe };

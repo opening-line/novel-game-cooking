@@ -1,3 +1,5 @@
+import { ColorTheme } from "./ColorTheme.js";
+
 class ChoiceButton {
 
   #button;
@@ -20,3 +22,5 @@ class ChoiceButton {
     return this.#button;
   }
 }
+
+export { ChoiceButton };

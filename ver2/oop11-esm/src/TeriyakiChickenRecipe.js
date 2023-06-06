@@ -1,3 +1,7 @@
+import { Recipe } from "./Recipe.js";
+import { Procedure } from "./Procedure.js";
+import { ColorTheme } from "./ColorTheme.js";
+
 class TeriyakiChickenRecipe extends Recipe {
   constructor() {
     super(
@@ -12,3 +16,5 @@ class TeriyakiChickenRecipe extends Recipe {
     );
   }
 }
+
+export { TeriyakiChickenRecipe };

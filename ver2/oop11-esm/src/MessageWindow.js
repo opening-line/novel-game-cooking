@@ -19,3 +19,5 @@ class MessageWindow {
     }
   }
 }
+
+export { MessageWindow };

@@ -1,3 +1,7 @@
+import { Recipe } from "./Recipe.js";
+import { Procedure } from "./Procedure.js";
+import { ColorTheme } from "./ColorTheme.js";
+
 class ChickenRiceRecipe extends Recipe {
   constructor() {
     super(
@@ -13,3 +17,5 @@ class ChickenRiceRecipe extends Recipe {
     );
   }
 }
+
+export { ChickenRiceRecipe };

@@ -10,3 +10,5 @@ class Procedure {
     return this.#text;
   }
 }
+
+export { Procedure };

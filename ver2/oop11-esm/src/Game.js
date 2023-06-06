@@ -1,3 +1,10 @@
+import { MessageWindow } from "./MessageWindow.js";
+import { ChoiceButton } from "./ChoiceButton.js";
+import { ChoicesContainer } from "./ChoicesContainer.js";
+import { ChickenRiceRecipe } from "./ChickenRiceRecipe.js";
+import { ConeSoupRecipe } from "./ConeSoupRecipe.js";
+import { TeriyakiChickenRecipe } from "./TeriyakiChickenRecipe.js";
+
 class Game {
 
   #recipes;
@@ -46,3 +53,5 @@ class Game {
     }
   }
 }
+
+export { Game };

@@ -1,3 +1,5 @@
+import { ChoiceButton } from "./ChoiceButton.js";
+
 class ChoicesContainer {
   #choicesContainer;
   #buttons;
@@ -32,3 +34,5 @@ class ChoicesContainer {
     this.#choicesContainer.innerHTML = "";
   }
 }
+
+export { ChoicesContainer };

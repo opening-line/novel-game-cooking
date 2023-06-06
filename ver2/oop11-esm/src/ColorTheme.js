@@ -20,3 +20,5 @@ class ColorTheme {
     }
   }
 }
+
+export { ColorTheme };
