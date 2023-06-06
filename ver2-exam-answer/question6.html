@@ -7,4 +7,15 @@
     
     // messageをpタグの個所に１文字ずつ10ミリ秒間隔で
     // 表示するコードを書いてください
+
+    const element = document.getElementById("text");
+
+    const main = async () => {
+        for (let i = 0; i < message.length; i++) {
+            element.innerText += message[i];
+            await new Promise((resolve) => setTimeout(resolve, 10));
+        }
+    }
+    
+    main();
 </script>

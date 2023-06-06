@@ -1,0 +1,50 @@
+<!--
+    問題７
+
+    「おむすびころりん」の色が黒のままです。
+    深緑になるように修正してください。
+
+    ３秒後に「おむすびころりん」のテキストの色が赤色に変わるように実装してください。
+
+    JavaScriptもしくはCSSを使用してください。
+ -->
+
+
+<p id="text">おむすびころりん</p>
+
+<style>
+    p.text {
+        color: darkgreen;
+    }
+</style>
+
+
+
+
+<!--
+// ************************************************
+// 回答１
+// 素直に実装
+// ************************************************
+-->
+
+
+<style>
+    /* . を # に変える */
+    p#text {
+        color: darkgreen;
+    }
+</style>
+
+<script>
+    const main = async () => {
+        // ３秒待機
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        // 色を変える
+        document.getElementById("text").style.color = "red";
+    }
+
+    main();
+</script>
+
+
