@@ -7,7 +7,7 @@ const button = document.createElement("button");
 button.innerText = "Click Me";
 
 // ボタンがクリックされた時に、"Clicked"と表示してください。
-button.
+
 
 
 
