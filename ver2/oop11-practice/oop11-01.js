@@ -40,6 +40,4 @@ class ChoiceButton {
 }
 
 
-new ChoiceButton("選択肢");
-
-new ChoiceButton("選択肢", "#2fc");
+// ChoiceButtonのコンストラクターの使い方（インスタンス化）を２通り書いてください
