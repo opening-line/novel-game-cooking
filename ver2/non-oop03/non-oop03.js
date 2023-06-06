@@ -14,24 +14,15 @@ const main = async () => {
   
     textElement.innerText = "";
     buttonContainerElement.innerHTML = "";
-  
-    for (let i = 0; i < currentMessage.length; i++) {
-      textElement.innerText += currentMessage[i];
-      await new Promise(resolve => setTimeout(resolve, 20));
-    }
-  
+
+    await animateMessage(currentMessage, textElement);
+
     const waitClickAnyButtons = []
   
     for (let i = 0; i < currentMessageData.choiceIds.length; i++) {
-      const button = document.createElement("button");
       const choiceId = currentMessageData.choiceIds[i];
       const choice = choiceData[choiceId];
-      button.innerText = choice.text;
-      const waitClick = new Promise((resolve) => {
-        button.addEventListener("click", () => {
-          resolve(choice.target);
-        });
-      });
+      const { button, waitClick } = createButton(choice.text, choice.target);
       waitClickAnyButtons.push(waitClick);
       buttonContainerElement.appendChild(button);
     }
