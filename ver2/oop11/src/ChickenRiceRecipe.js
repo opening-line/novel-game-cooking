@@ -9,7 +9,7 @@ class ChickenRiceRecipe extends Recipe {
         new Procedure("ケチャップで炒める"),
         new Procedure("ご飯と混ぜる"),
       ],
-     ColorTheme.JUICY
+     ColorTheme.JUICY     // 追加
     );
   }
 }
