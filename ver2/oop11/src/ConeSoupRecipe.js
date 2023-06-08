@@ -9,7 +9,7 @@ class ConeSoupRecipe extends Recipe {
         new Procedure("塩コショウで味を整える"),
         new Procedure("スープが煮立ったら完成"),
       ],
-      ColorTheme.SWEET
+      ColorTheme.SWEET     // 追加
     );
   }
 }

@@ -2,8 +2,10 @@ class Recipe {
 
   #name;
   #procedures;
+  // colorTheme を追加
   #colorTheme;
 
+  // colorTheme を追加
   constructor(name, procedures, colorTheme = ColorTheme.DEFAULT) {
     this.#name = name;
     this.#procedures = procedures;
@@ -23,6 +25,7 @@ class Recipe {
     return `${index}.${text}`
   }
 
+  // colorTheme を追加
   getColorTheme() {
     return this.#colorTheme;
   }

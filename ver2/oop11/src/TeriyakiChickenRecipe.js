@@ -8,7 +8,7 @@ class TeriyakiChickenRecipe extends Recipe {
         new Procedure("照り焼きソースを加えて炒めます"),
         new Procedure("鶏肉に火が通ったら完成です"),
       ],
-      ColorTheme.SPICY
+      ColorTheme.SPICY     // 追加
     );
   }
 }
