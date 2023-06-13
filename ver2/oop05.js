@@ -12,9 +12,9 @@ class MessageWindow {
    * @returns {Promise<void>}
    */
   async showText() {
-    this.#messageElement.innerText = "";
+    this.#messageElement.textContent = "";
     for (let i = 0; i < this.#message.length; i++) {
-      this.#messageElement.innerText += this.#message[i];
+      this.#messageElement.textContent += this.#message[i];
       await new Promise(resolve => setTimeout(resolve, 20));
     }
   }
@@ -101,7 +101,7 @@ class Recipe {
 
   getProcedureText(index) {
     const text = this.#procedures[index].getText();
-    return `${index}.${text}`
+    return `${index + 1}. ${text}`
   }
 }
 
